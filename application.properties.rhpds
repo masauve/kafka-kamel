@@ -1,0 +1,6 @@
+# Kafka Bootstrap Servers
+
+kafka.bootstrap-servers=my-cluster-kafka-brokers:9092
+# Topics
+kafka.topic = mymessages
+kafka.message = "From RHPDS!"
