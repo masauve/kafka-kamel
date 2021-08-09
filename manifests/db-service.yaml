@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: messagedb
+  labels:
+    app: server
+    app.kubernetes.io/name: messagedb
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: messagedb
+    app.kubernetes.io/part-of: demo-app
+spec:
+  ports:
+  - name: tcp
+    port: 3306
+  selector:
+    name: messagedb

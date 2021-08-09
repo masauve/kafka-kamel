@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+  labels:
+    app.kubernetes.io/part-of: demo-app
+
+configMapGenerator:
+- name: messagedb-init
+  files:
+    - config/90-init-database.sh
+    - config/schema.sql
+
+resources:
+  - namespace.yaml
+  - appconfig.yaml
+  - db-pvc.yaml
+  - db-secret.yaml
+  - db-service.yaml
+  - db-deployment.yaml
+  - quarkus-secret.yaml
