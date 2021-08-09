@@ -1,1 +1,1 @@
-kamel run --configmap=appconfig  ./integrations/KafkaProducer.java
+kamel run --configmap=appconfig --open-api api/openapi.yaml ./integrations/KafkaProducer.java
