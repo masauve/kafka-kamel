@@ -2,6 +2,7 @@ Pre-requisites:
 
 Camel-K Operator installed
 AMQStreams kafka instance deployed
+Kamel CLI
 
 This camel-k project includes two integration routes:
 
