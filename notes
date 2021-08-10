@@ -1,1 +1,10 @@
 mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $HOSTNAME $MYSQL_DATABASE
+
+
+    service_discovery.yml:
+      production:
+        enabled: true
+        authentication_method: oauth
+        oauth_server_type: rh_sso
+        client_id: '3scale'
+        client_secret: '9f02528e-6db3-4bb8-8e99-8ae030eb874b'

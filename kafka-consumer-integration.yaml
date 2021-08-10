@@ -39,3 +39,6 @@ spec:
     prometheus:
       configuration:
         enabled: true
+    jolokia:
+      configuration:
+        enabled: true

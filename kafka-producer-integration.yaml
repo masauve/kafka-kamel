@@ -82,3 +82,11 @@ spec:
 
 
     name: KafkaProducer.java
+  traits:
+    3scale:
+      configuration:
+        auto: true
+        enabled: true
+    jolokia:
+      configuration:
+        enabled: true

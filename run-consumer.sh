@@ -1,1 +1,1 @@
-kamel run ./integrations/KafkaConsumer.java --configmap=appconfig --config secret:my-datasource --build-property quarkus.datasource.camel.db-kind=mysql -d mvn:io.quarkus:quarkus-jdbc-mysql:2.1.1.Final -t prometheus.enabled=true
+kamel run ./integrations/KafkaConsumer.java --configmap=appconfig --config secret:my-datasource --build-property quarkus.datasource.camel.db-kind=mysql -d mvn:io.quarkus:quarkus-jdbc-mysql:2.1.1.Final -t jolokia.enabled=true -t prometheus.enabled=true
