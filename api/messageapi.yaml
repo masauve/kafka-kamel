@@ -1,0 +1,15 @@
+openapi: 3.0.2
+info:
+    title: Message API
+    version: 1.0.0
+    description: A brand new API with no content.  Go nuts!
+paths:
+    /readdb:
+        get:
+            responses:
+                '200':
+                    content:
+                        application/json: {}
+                    description: success
+            operationId: readdb
+            description: read last 10 rows of messagedb

@@ -1,0 +1,60 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: message-api
+  namespace: kamel-demo
+spec:
+  configuration:
+  - resourceType: config
+    type: secret
+    value: my-datasource
+  dependencies:
+  - mvn:io.quarkus:quarkus-jdbc-mysql:2.1.1.Final
+  resources:
+  - content: |
+      openapi: 3.0.2
+      info:
+          title: Message API
+          version: 1.0.0
+          description: A brand new API with no content.  Go nuts!
+      paths:
+          /readdb:
+              get:
+                  responses:
+                      '200':
+                          content:
+                              application/json: {}
+                          description: success
+                  operationId: readdb
+                  description: read last 10 rows of messagedb
+    name: messageapi.yaml
+    type: openapi
+  sources:
+  - content: |+
+      import org.apache.camel.builder.RouteBuilder;
+
+
+      public class MessageAPI extends RouteBuilder {
+        @Override
+        public void configure() throws Exception {
+              from("direct:readdb")
+              .setBody(simple("select * from messages order by id desc limit 10"))
+              .to("jdbc:camel").marshal().json();
+       }
+      }
+
+
+
+    name: MessageAPI.java
+  traits:
+    3scale:
+      configuration:
+        auto: true
+        enabled: true
+    builder:
+      configuration:
+        properties:
+        - quarkus.datasource.camel.db-kind = mysql
+    jolokia:
+      configuration:
+        enabled: true

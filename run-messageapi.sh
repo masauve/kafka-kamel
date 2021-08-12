@@ -1,0 +1,1 @@
+kamel run --open-api api/messageapi.yaml --config secret:my-datasource  --build-property quarkus.datasource.camel.db-kind=mysql -d mvn:io.quarkus:quarkus-jdbc-mysql:2.1.1.Final -t jolokia.enabled=true -t 3scale.enabled=true -t 3scale.auto=true ./integrations/MessageAPI.java

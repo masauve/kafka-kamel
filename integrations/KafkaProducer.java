@@ -7,7 +7,8 @@ public class KafkaProducer extends RouteBuilder {
         from("direct:create")
         .id("generator")
         .convertBodyTo(String.class)
-        .to("kafka:{{kafka.topic}}?brokers={{kafka.bootstrap-servers}}");
+        .setBody(simple("select * from messages order by id desc limit 10;"));
+
  }
 }
 

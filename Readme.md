@@ -4,10 +4,11 @@ Camel-K Operator installed
 AMQStreams kafka instance deployed
 Kamel CLI
 
-This camel-k project includes two integration routes:
+This camel-k project includes 3 integration routes:
 
 1) write a msg from a REST API call to kafka (KafkaProducer.java)
 2) read a msg from Kafka and write to a database (KafkaConsumer.java)
+3) expose a REST API to interact with the DB directly (MessageAPI.java)
 
 to setup the database and required secret:
 oc apply -k manifests/
